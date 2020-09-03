@@ -1,6 +1,6 @@
 This is a small script that scrapes crunchbase and linkedin for various fields and returns the data in a CSV.
 
-For all the steps below, one must activate the python environment in venv/Scripts
+For all the steps below, one must activate the python environment in venv/Scripts (and one needs to create the venv from the dependency file)
 
 The script can also be ran directly calling "python GetAllData.py" or by using the user interface.
 
