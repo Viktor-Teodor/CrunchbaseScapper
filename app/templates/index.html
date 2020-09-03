@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Communication Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link  rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='album.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">This is a simple web page that provides the UI to communicate with the enclave. The web page simulates a seller of renewable energy. The user can input the desired price, send it to the enclave and receive the average without knowing other prices</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>Communication</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Set your filters for the companies</h1>
+          <p style="padding-top:40px"></p>
+          <form action="" role="form" method="post">
+            {{ form.hidden_tag() }}
+            <label class="sr-only" for="Description"> Description</label>
+            {{form.description(type="text", class="form-control, form-control-user", id="Description", placeholder="Descriptions of the companies you want to search for, separated by commas")}}
+
+            <label class="sr-only" for="Headquarters"> Description</label>
+            {{form.headquarters(type="text", class="form-control, form-control-user", id="Headquarters", placeholder="Enter the headquarters location or leave it blank")}}
+
+            <label class="sr-only" for="Industry"> Description</label>
+            {{form.industry(type="text", class="form-control, form-control-user", id="Industry", placeholder="industry of the companies you want to search for, separated by commas and no spaces")}}
+            {{ form.submit(class="btn btn-default")}}
+          </form>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+            {% if availableForDownload == True: %}
+            <a href="/static/data.csv" download>
+              <button class="btn btn-default">Download the results</button>
+            </a>
+            {% else %}
+            <p>The results are still being processed</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p style="padding-top:40px"> Developed by Victor-Teodor Stoian
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/vendor/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/holder.min.js') }}"></script>
+  </body>
+</html>
