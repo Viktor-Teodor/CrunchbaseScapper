@@ -25,15 +25,17 @@ def logIntoCrunchBase(driver, str):
     emailAddressForm = driver.find_element_by_name("email")
     emailAddressForm.clear()
 
+    #The use needs to put the credentials here!
+    
     # DO NOT LEAVE THOSE CREDENTIALS HERE
-    emailAddressForm.send_keys("venturedevelopment@r3.com")
+    emailAddressForm.send_keys("")
 
     # Fill the password
     passwordForm = driver.find_element_by_name("password")
     passwordForm.clear()
 
     # DO NOT LEAVE THIS HERE
-    passwordForm.send_keys("January2020")
+    passwordForm.send_keys("")
 
     # Submit the form
     passwordForm.send_keys(Keys.RETURN)
